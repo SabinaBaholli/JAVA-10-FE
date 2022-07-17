@@ -1,0 +1,11 @@
+nav {
+    background-color: #ab7ed4;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+nav a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

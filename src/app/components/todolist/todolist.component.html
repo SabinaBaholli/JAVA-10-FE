@@ -13,7 +13,6 @@
     <button mat-raised-button color="primary" class="add-button" type="submit">Add Item</button>
 </form>
 
-<p *ngIf="myToDoList.length === 0">To Do List is empty.</p>
 <div class="list-items" *ngIf="showList">
   <ul>
     <li *ngFor="let item of myToDoList">
@@ -27,6 +26,9 @@
   </ul>
 </div>
 
-<button (click)="showHideItems()">{{ showList ? 'Hide': 'Show'}}</button>
-<button (click)="filter()">Filter</button>
-
+<div class="actions-container">
+  <p *ngIf="myToDoList.length === 0">To Do List is empty.</p>
+  <button (click)="showHideItems()">{{ showList ? 'Hide': 'Show'}}</button>
+  <button (click)="filter()">Filter</button>
+</div>
+  

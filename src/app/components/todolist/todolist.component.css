@@ -1,12 +1,44 @@
 .list-items {
-    border: 1px dashed;
+  width: 50%;
+  margin: auto;
+  border: 1px solid #babae7;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .list-items li {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 button {
-    margin: 10px;
+  margin: 10px;
+  background: #ab7ed4;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 8px;
+  max-width: 100px;
+  padding: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  border: 1px solid #babae7;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+form button {
+  margin: auto;
+}
+
+form label {
+  margin-bottom: 8px;
+}
+
+.actions-container {
+  text-align: center;
 }

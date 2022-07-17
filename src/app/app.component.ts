@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-app';
+
+  letters = ['A', 'B', 'C'];
+
+  myFunction = () => {}
+
+  oldFunction() {
+    
+  } 
+
 }

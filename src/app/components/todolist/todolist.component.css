@@ -1,0 +1,12 @@
+.list-items {
+    border: 1px dashed;
+}
+
+.list-items li {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    margin: 10px;
+}

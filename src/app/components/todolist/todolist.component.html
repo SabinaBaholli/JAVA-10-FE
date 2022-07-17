@@ -1,0 +1,32 @@
+<form #f="ngForm" (ngSubmit)="addItem(f)" class="add-item-form">
+
+    <label for="title">Title</label>
+    <input placeholder="Title" type="text" ngModel name="title" required>
+
+    <br/>
+
+    <label for="priority">Priority</label>
+    <input placeholder="Priority" type="number" ngModel name="priority" required>
+    
+    <br/>
+    
+    <button mat-raised-button color="primary" class="add-button" type="submit">Add Item</button>
+</form>
+
+<p *ngIf="myToDoList.length === 0">To Do List is empty.</p>
+<div class="list-items" *ngIf="showList">
+  <ul>
+    <li *ngFor="let item of myToDoList">
+      <span>
+        {{ item.title }}
+      </span>
+      <span>
+        {{ item.priority }}
+      </span>
+    </li>
+  </ul>
+</div>
+
+<button (click)="showHideItems()">{{ showList ? 'Hide': 'Show'}}</button>
+<button (click)="filter()">Filter</button>
+

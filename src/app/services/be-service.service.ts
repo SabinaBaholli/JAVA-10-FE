@@ -14,4 +14,8 @@ export class BeService {
     return this.http.get('http://localhost:3000/items');
   }
 
+  getItem = (id: number) => {
+    return this.http.get(`http://localhost:3000/items/${id}`);
+  }
+
 }

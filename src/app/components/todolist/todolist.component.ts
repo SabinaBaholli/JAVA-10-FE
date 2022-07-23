@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BeService } from 'src/app/services/be-service.service';
 
 @Component({
@@ -6,11 +6,15 @@ import { BeService } from 'src/app/services/be-service.service';
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css'],
 })
-export class TodolistComponent implements OnInit {
+export class TodolistComponent implements OnInit, OnDestroy {
   showList: boolean = false;
 
   ngOnInit() {
     this.getItems();
+  }
+
+  ngOnDestroy() {
+    
   }
 
   constructor(public be: BeService) {}

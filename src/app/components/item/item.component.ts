@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BeService } from 'src/app/services/be-service.service';
 
 @Component({
   selector: 'app-item',
@@ -8,10 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ItemComponent implements OnInit {
   @Input() listItem: any;
 
-  constructor() { }
+  constructor(private backend: BeService) { }
+
+  printItem = (item: any) => {
+    console.log(item);
+  }
 
   ngOnInit(): void {
-    console.log(this.listItem);
+    this.backend.getItem(1).subscribe({
+      next: this.printItem.bind(this)
+    })
   }
 
 }

@@ -1,4 +1,6 @@
 <nav>
     <a [routerLink]="['/']">HOME</a>
     <a [routerLink]="['/list']">LIST</a>
+    <a *ngIf="!isLoggedIn()" [routerLink]="['/login']">LOG IN</a>
+    <a *ngIf="isLoggedIn()" (click)="logout()">Log Out</a>
 </nav>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BeService } from './services/be-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  constructor(public be: BeService) { }
+
   title = 'todo-app';
 
   letters = ['A', 'B', 'C'];
 
   myFunction = () => {}
 
-  oldFunction() {
-    
+  print() {
+    this.be.printHello();
   } 
 
 }

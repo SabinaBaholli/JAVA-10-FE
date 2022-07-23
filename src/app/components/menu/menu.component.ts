@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  isLoggedIn = () => localStorage.getItem('username');
+
   constructor(private router: Router) { }
 
-  
-  logOut() {
-    this.router.navigateByUrl('/');
-    alert('YOU ARE LOGGED OUT');
-    localStorage.clear();
-  };
-
   ngOnInit(): void {
+  }
+
+  logout = () => {
+    localStorage.removeItem('username');
+    this.router.navigateByUrl('/login');
   }
 
 }

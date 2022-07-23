@@ -16,8 +16,4 @@ export class AppComponent {
 
   myFunction = () => {}
 
-  print() {
-    this.be.printHello();
-  } 
-
 }

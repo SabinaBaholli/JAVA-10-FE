@@ -1,36 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-
-interface TodoItem {
-  title: string;
-  priority: number;
-}
+import { BeService } from 'src/app/services/be-service.service';
 
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.css']
+  styleUrls: ['./todolist.component.css'],
 })
-
-export class TodolistComponent {
-  myToDoList: Array<TodoItem> = [];
+export class TodolistComponent implements OnInit {
   showList: boolean = false;
 
-  constructor() { }
+  ngOnInit() {
+    this.getItems();
+  }
+
+  constructor(public be: BeService) {}
 
   addItem = (f: any) => {
     const newItem = f.form.value;
-    this.myToDoList.push(newItem)
+    this.be.myToDoList.push(newItem);
     f.resetForm();
-  }
+  };
+
+  handleUpdateResponse = (res: any) => {
+    console.log(res);
+  };
+
+  handleError = (res: any) => {
+    console.log(res);
+  };
+
+  getItems = () => {
+    this.be.getListItems().subscribe({
+      next: this.handleUpdateResponse.bind(this),
+      error: this.handleError.bind(this),
+    });
+  };
 
   showHideItems = () => {
     this.showList = !this.showList;
-  }
+  };
 
-  isBiggerThan2 = (p: number): boolean =>  p > 2;
+  isBiggerThan2 = (p: number): boolean => p > 2;
 
   filter = () => {
-    this.myToDoList = this.myToDoList.filter((i) => this.isBiggerThan2(i.priority));
-  }
-
+    this.be.myToDoList = this.be.myToDoList.filter((i) =>
+      this.isBiggerThan2(i.priority)
+    );
+  };
 }

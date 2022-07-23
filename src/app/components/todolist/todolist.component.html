@@ -21,11 +21,11 @@
 </form>
 
 <div class="list-items" *ngIf="showList">
-  <app-item [listItem]="item" *ngFor="let item of myToDoList"></app-item>
+  <app-item [listItem]="item" *ngFor="let item of be.myToDoList"></app-item>
 </div>
 
 <div class="actions-container">
-  <p *ngIf="myToDoList.length === 0">To Do List is empty.</p>
+  <p *ngIf="be.myToDoList.length === 0">To Do List is empty.</p>
   <button (click)="showHideItems()">{{ showList ? "Hide" : "Show" }}</button>
   <button (click)="filter()">Filter</button>
 </div>

@@ -7,15 +7,24 @@ import { TodoItem } from '../models/TodoItem';
 })
 export class BeService {
   myToDoList: Array<TodoItem> = [];
+  BASE_URL: string= 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
   getListItems = () => {
-    return this.http.get('http://localhost:3000/items');
+    return this.http.get(this.BASE_URL + '/items');
   }
 
   getItem = (id: number) => {
-    return this.http.get(`http://localhost:3000/items/${id}`);
+    return this.http.get(`${this.BASE_URL}/items/${id}`);
+  }
+
+  postItem = (item: TodoItem) => {
+    return this.http.post(this.BASE_URL + '/items', item);
+  }
+
+  deleteItem = (id: number) => {
+    return this.http.delete(this.BASE_URL + '/items/' + id );
   }
 
 }

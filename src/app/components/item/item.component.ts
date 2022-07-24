@@ -16,9 +16,7 @@ export class ItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.backend.getItem(1).subscribe({
-      next: this.printItem.bind(this)
-    })
+ 
   }
 
 }

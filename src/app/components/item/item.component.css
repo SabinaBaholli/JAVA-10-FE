@@ -2,4 +2,10 @@
     display: flex;
     justify-content: space-between;
     margin: 0 15%;
+    padding: 0 20px;
+}
+
+.item-list:hover {
+    background-color: aliceblue;
+    cursor: no-drop;
 }

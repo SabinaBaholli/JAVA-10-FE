@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TodoItem } from 'src/app/models/TodoItem';
 import { BeService } from 'src/app/services/be-service.service';
 
 @Component({
@@ -13,20 +14,21 @@ export class TodolistComponent implements OnInit, OnDestroy {
     this.getItems();
   }
 
-  ngOnDestroy() {
-
-  }
+  ngOnDestroy() {}
 
   constructor(public be: BeService) {}
 
   addItem = (f: any) => {
     const newItem = f.form.value;
-    this.be.myToDoList.push(newItem);
+    this.be.postItem(newItem).subscribe({
+      next: this.getItems,
+      error: this.handleError.bind(this),
+    });
     f.resetForm();
   };
 
   handleUpdateResponse = (res: any) => {
-    console.log(res);
+    this.be.myToDoList = res;
   };
 
   handleError = (res: any) => {
@@ -43,6 +45,10 @@ export class TodolistComponent implements OnInit, OnDestroy {
   showHideItems = () => {
     this.showForm = !this.showForm;
   };
+
+  delete(item: TodoItem)  {
+    this.be.deleteItem(item.id).subscribe();
+  }
 
   isBiggerThan2 = (p: number): boolean => p > 2;
 

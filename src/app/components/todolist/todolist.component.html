@@ -38,5 +38,5 @@
     <div>Title</div>
     <div>Priority</div>
   </div>
-  <app-item [listItem]="item" *ngFor="let item of be.myToDoList"></app-item>
+  <app-item [listItem]="item" (click)="delete(item)" *ngFor="let item of be.myToDoList"></app-item>
 </div>

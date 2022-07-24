@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BeService } from './services/be-service.service';
 
 @Component({
@@ -6,12 +7,18 @@ import { BeService } from './services/be-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  constructor(public be: BeService) {}
+export class AppComponent implements OnInit {
+  constructor(public be: BeService, private router: Router) {}
+
+  ngOnInit() {
+    if (!this.getUsername()) {
+      this.router.navigateByUrl('/login');
+    }
+  }
 
   getUsername = () => {
     return localStorage.getItem('username');
-  }
+  };
 
   title = 'todo-app';
 

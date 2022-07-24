@@ -10,3 +10,8 @@ form {
 label {
     font-size: 20px;
 }
+
+a {
+    display: flex;
+    justify-content: center;
+}

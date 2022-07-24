@@ -47,7 +47,9 @@ export class TodolistComponent implements OnInit, OnDestroy {
   };
 
   delete(item: TodoItem)  {
-    this.be.deleteItem(item.id).subscribe();
+    this.be.deleteItem(item.id).subscribe({
+      next: this.getItems
+    });
   }
 
   isBiggerThan2 = (p: number): boolean => p > 2;

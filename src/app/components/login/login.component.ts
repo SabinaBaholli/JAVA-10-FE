@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BeService } from 'src/app/services/be-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,36 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private backend: BeService
+    ) { }
 
   ngOnInit(): void {
   }
 
+  handleResponse = (username: any, response: any) => {
+    const hasUser = response.filter((user: any) => user.username === username).length;
+    if (hasUser) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.handleError();
+    }
+  }
+
+  handleError = () => {
+    alert('Wrong credentials!')
+  }
+
   login = (formValues: NgForm) => {
-    const credentials = formValues.form.value;
-    localStorage.setItem('username', credentials.username);
-    this.router.navigateByUrl('/list');
+    const username = formValues.form.value.username;
+    localStorage.setItem('username', username);
+    this.backend.getUsers().subscribe(
+    {
+      next: this.handleResponse.bind(this, username),
+      error: this.handleError.bind(this),
+    }
+    )
   }
 
 }

@@ -27,4 +27,8 @@ export class BeService {
     return this.http.delete(this.BASE_URL + '/items/' + id );
   }
 
+  getUsers = () => {
+    return this.http.get(this.BASE_URL + '/users');
+  }
+
 }

@@ -5,7 +5,13 @@
     padding: 0 20px;
 }
 
-.item-list:hover {
-    background-color: aliceblue;
-    cursor: no-drop;
+.item-list:before {
+    content: '';
+    background: url(https://w7.pngwing.com/pngs/47/920/png-transparent-computer-icons-check-mark-done-miscellaneous-angle-text-thumbnail.png);
+    background-size: cover;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: -60px;
+    margin-top: 10px;
 }

@@ -1,3 +1,3 @@
 <app-menu></app-menu>
-
+<p *ngIf="getUsername()" class="greeting">Hello {{ getUsername() }}! :)</p>
 <router-outlet></router-outlet>

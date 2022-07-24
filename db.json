@@ -1,9 +1,10 @@
 {
-  "items": [
+  "items": [],
+  "users": [
     {
-      "title": "New",
-      "priority": 5,
-      "id": 4
+      "id": 1,
+      "username": "John",
+      "password": 123
     }
   ]
 }

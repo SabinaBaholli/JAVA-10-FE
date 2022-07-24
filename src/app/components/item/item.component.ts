@@ -8,7 +8,7 @@ import { BeService } from 'src/app/services/be-service.service';
 })
 export class ItemComponent implements OnInit {
   @Input() listItem: any;
-
+  changeText = false;
   constructor(private backend: BeService) { }
 
   printItem = (item: any) => {

@@ -1,5 +1,5 @@
-<nav>
-    <a [routerLink]="['/']">HOME</a>
-    <a [routerLink]="['/list']">LIST</a>
-    <a *ngIf="isLoggedIn()" class="log-out" (click)="logout()">Log Out</a>
+<nav *ngIf="isLoggedIn()">
+  <a [routerLink]="['/']">Home</a>
+  <a [routerLink]="['/list']">List</a>
+  <a class="log-out" (click)="logout()">Log Out</a>
 </nav>

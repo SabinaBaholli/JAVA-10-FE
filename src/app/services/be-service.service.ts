@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/TodoItem';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class BeService {
 
   getUsers = () => {
     return this.http.get(this.BASE_URL + '/users');
+  }
+
+  postUser = (user: User) => {
+    return this.http.post(this.BASE_URL + '/users', user);
   }
 
 }

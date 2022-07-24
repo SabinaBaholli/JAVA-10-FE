@@ -8,6 +8,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { ItemComponent } from './components/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     TodolistComponent,
     MenuComponent,
     LoginComponent,
-    ItemComponent
+    ItemComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

@@ -43,3 +43,10 @@ form label {
 .actions-container {
   text-align: center;
 }
+
+.list-labels {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15%;
+  font-weight: bold;
+}

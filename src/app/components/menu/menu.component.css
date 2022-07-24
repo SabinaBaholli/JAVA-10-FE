@@ -9,3 +9,9 @@ nav a {
     color: white;
     font-weight: bold;
 }
+
+.log-out {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}

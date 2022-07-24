@@ -7,14 +7,14 @@ import { BeService } from 'src/app/services/be-service.service';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit, OnDestroy {
-  showList: boolean = false;
+  showForm: boolean = false;
 
   ngOnInit() {
     this.getItems();
   }
 
   ngOnDestroy() {
-    
+
   }
 
   constructor(public be: BeService) {}
@@ -41,7 +41,7 @@ export class TodolistComponent implements OnInit, OnDestroy {
   };
 
   showHideItems = () => {
-    this.showList = !this.showList;
+    this.showForm = !this.showForm;
   };
 
   isBiggerThan2 = (p: number): boolean => p > 2;
